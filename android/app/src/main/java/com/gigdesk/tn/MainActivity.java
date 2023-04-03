@@ -1,4 +1,4 @@
-package com.taskbot;
+package com.gigdesk.tn;
 
 import com.facebook.react.ReactActivity;
 import android.os.Bundle;

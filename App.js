@@ -1,13 +1,16 @@
+// import 'react-native-gesture-handler';
 import React, {useState, useEffect} from 'react';
-import {StyleSheet , useColorScheme} from 'react-native';
-import {
-  Colors,
-} from 'react-native/Libraries/NewAppScreen';
+import {StyleSheet, useColorScheme} from 'react-native';
+import {Colors} from 'react-native/Libraries/NewAppScreen';
 import {PersistGate} from 'redux-persist/integration/react';
 import {persistStore} from 'redux-persist';
 import {Provider, useSelector, useDispatch} from 'react-redux';
 import store from './src/Redux/Store';
-import {DarkTheme, DefaultTheme, NavigationContainer} from '@react-navigation/native';
+import {
+  DarkTheme,
+  DefaultTheme,
+  NavigationContainer,
+} from '@react-navigation/native';
 import {createNativeStackNavigator} from '@react-navigation/native-stack';
 import {createDrawerNavigator} from '@react-navigation/drawer';
 
@@ -39,9 +42,9 @@ import DisputesDetail from './src/screens/disputes/disputesDetails';
 import imagePreview from './src/screens/imagePreview/ImagePreview';
 import Checkout from './src/screens/checkout/Checkout';
 import ProjectListing from './src/screens/exploreProjects/projectListing';
-import projectDetails from "./src/screens/exploreProjects/projectDetails";
-import sendProposal from "./src/screens/exploreProjects/sendProposal"
-import searchProjects from "./src/screens/exploreProjects/searchProjects"
+import projectDetails from './src/screens/exploreProjects/projectDetails';
+import sendProposal from './src/screens/exploreProjects/sendProposal';
+import searchProjects from './src/screens/exploreProjects/searchProjects';
 import MyProjectListing from './src/screens/myProjects/MyProjectListing';
 import ProposalListing from './src/screens/myProjects/ProposalListing';
 import ProposalActivity from './src/screens/myProjects/ProposalActivity';
@@ -56,7 +59,6 @@ console.disableYellowBox = true;
 const Stack = createNativeStackNavigator();
 const Drawer = createDrawerNavigator();
 let persistor = persistStore(store);
-
 
 HomeDrawer = () => {
   return (
@@ -102,7 +104,7 @@ HomeStack = () => {
       setShowSplash(false);
     }, 2000);
   }, []);
- 
+
   return (
     <Stack.Navigator
       screenOptions={{
@@ -119,7 +121,7 @@ HomeStack = () => {
           <Stack.Screen name="taskDetail" component={TaskDetail} />
           <Stack.Screen name="orderDetail" component={OrderDetail} />
           <Stack.Screen name="profileDetail" component={ProfileDetail} />
-          <Stack.Screen name="profileSetting" component={ProfileSetting} /> 
+          <Stack.Screen name="profileSetting" component={ProfileSetting} />
           <Stack.Screen name="disputesDetail" component={DisputesDetail} />
           <Stack.Screen name="imagePreview" component={imagePreview} />
           <Stack.Screen name="projectDetails" component={projectDetails} />
@@ -132,8 +134,7 @@ HomeStack = () => {
           <Stack.Screen name="postProject" component={PostProject} />
           <Stack.Screen name="searchProjects" component={searchProjects} />
           {/* <Stack.Screen name="myProjects" component={myProjects} /> */}
-          
-        
+
           <Stack.Screen
             name="availableTaskDetail"
             component={AvailableTaskDetail}
@@ -153,7 +154,9 @@ const App = () => {
   return (
     <Provider store={store}>
       <PersistGate loading={null} persistor={persistor}>
-        <NavigationContainer theme={DefaultTheme}>{HomeStack()}</NavigationContainer>
+        <NavigationContainer theme={DefaultTheme}>
+          {HomeStack()}
+        </NavigationContainer>
       </PersistGate>
     </Provider>
   );
